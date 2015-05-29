@@ -5,6 +5,7 @@ var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
+var browserify =require('gulp-browserify');
 
 gulp.task('styles', function () {<% if (includeSass) { %>
   return gulp.src('app/styles/*.scss')
@@ -54,7 +55,7 @@ gulp.task('images', function () {
         // as hooks for embedding and styling
         svgoPlugins: [{cleanupIDs: false}]
       }))
-          .on('error', function(err){ console.log(err); this.end; })))
+          //.on('error', function(err){ console.log(err); this.end; })))
       .pipe(gulp.dest('dist/images'));
 });
 
@@ -77,7 +78,7 @@ gulp.task('extras', function () {
 
 gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
 
-gulp.task('serve', ['styles', 'fonts','wiredep'], function () {
+gulp.task('serve', ['borwserify','styles', 'fonts','wiredep'], function () {
   browserSync({
     notify: false,
     port: 9000,

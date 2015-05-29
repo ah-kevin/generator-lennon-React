@@ -188,7 +188,6 @@ module.exports = yeoman.generators.Base.extend({
             this.mkdir('app/images');
             this.mkdir('app/fonts');
             this.mkdir('app/components');
-            this.copy('app.js', 'app/scripts/app.js');
             this.copy('main.js', 'app/components/main.js');
         }
     },
