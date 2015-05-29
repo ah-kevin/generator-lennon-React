@@ -26,7 +26,7 @@ gulp.task('styles', function () {<% if (includeSass) { %>
 });
 
 gulp.task('borwserify', function () {
-  gulp.src('app/components/app.js')
+  gulp.src('app/components/main.js')
       .pipe(browserify({
         transform:'reactify'
       }))
@@ -55,7 +55,7 @@ gulp.task('images', function () {
         // as hooks for embedding and styling
         svgoPlugins: [{cleanupIDs: false}]
       }))
-          //.on('error', function(err){ console.log(err); this.end; })))
+          .on('error', function(err){ console.log(err); this.end; })))
       .pipe(gulp.dest('dist/images'));
 });
 

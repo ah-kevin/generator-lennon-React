@@ -25,13 +25,13 @@ npm install -g bower
 
 
 ```bash
-npm install -g generator-lennon
+npm install -g generator-lennon-react
 ```
 
 安装成功后就可以使用了,直接命令行输入:
 
 ```bash
-yo Lennon
+yo Lennon-react
 ```
 
 ### 使用:
