@@ -1,3 +1,6 @@
+/**
+ * Created by Lennon on 15/6/1.
+ */
 /*global -$ */
 'use strict';
 // generated on <%= (new Date).toISOString().split('T')[0] %> using <%= pkg.name %> <%= pkg.version %>
@@ -8,7 +11,7 @@ var reload = browserSync.reload;
 var browserify =require('gulp-browserify');
 
 gulp.task('styles', function () {<% if (includeSass) { %>
-  return gulp.src('app/styles/*.scss')
+   gulp.src('app/styles/*.scss')
           .pipe($.sourcemaps.init())
           .pipe($.sass({
             outputStyle: 'expanded',
