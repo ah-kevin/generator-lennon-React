@@ -1,6 +1,6 @@
 {
   "name": "generator-lennon-react",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Yeoman generator lennon react",
   "license": "MIT",
   "main": "app/index.js",

@@ -38,17 +38,17 @@ module.exports = yeoman.generators.Base.extend({
 
     prompting: function () {
         var done = this.async();
-        console.log("Hi, 准备开始一个基于React的项目!");
+
         var appName = path.basename(process.cwd());
         if (!this.options['skip-welcome-message']) {
             this.log(yosay('给自己创建的脚手架!'));
         }
-
+        console.log("Hi, 准备开始一个基于React的项目!");
         var prompts = [
             {
                 type: 'input',
                 name: 'appName',
-                message: '应用的名字?',
+                message: '是否修改项目的名字?',
                 default: appName
             },
             {
