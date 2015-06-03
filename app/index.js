@@ -51,21 +51,6 @@ module.exports = yeoman.generators.Base.extend({
                 message: '应用的名字?',
                 default: appName
             },
-            //{
-            //    type: 'list',
-            //    name: 'appFramework',
-            //    message: '选择React应用框架:',
-            //    choices: [
-            //        { name: 'react-touch', value: 'useReactTouch' },
-            //        { name: '不用', value: 'onlyReact' }
-            //    ],
-            //    default: 1
-            //},
-            //{
-            //    type: 'confirm',
-            //    name: 'useFlux',
-            //    message: '是否用Flux? (复杂应用推荐使用)'
-            //},
             {
                 type: 'checkbox',
                 name: 'features',
@@ -90,7 +75,7 @@ module.exports = yeoman.generators.Base.extend({
 
         this.prompt(prompts, function (answers) {
             var features = answers.features;
-            this.appName = e.appName;
+            this.appName = answers.appName;
             var hasFeature = function (feat) {
                 return features.indexOf(feat) !== -1;
             };
