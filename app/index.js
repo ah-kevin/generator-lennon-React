@@ -38,36 +38,59 @@ module.exports = yeoman.generators.Base.extend({
 
     prompting: function () {
         var done = this.async();
-
+        console.log("Hi, 准备开始一个基于React的项目!");
+        var appName = path.basename(process.cwd());
         if (!this.options['skip-welcome-message']) {
             this.log(yosay('给自己创建的脚手架!'));
         }
 
-        var prompts = [{
-            type: 'checkbox',
-            name: 'features',
-            message: 'What more would you like?',
-            choices: [
-                {
-                    name: 'Sass',
-                    value: 'includeSass',
-                    checked: true
-                },
-                {
-                    name: 'Bootstrap',
-                    value: 'includeBootstrap',
-                    checked: true
-                },
-                {
-                    name: 'Modernizr',
-                    value: 'includeModernizr',
-                    checked: true
-                }]
-        }];
+        var prompts = [
+            {
+                type: 'input',
+                name: 'appName',
+                message: '应用的名字?',
+                default: appName
+            },
+            //{
+            //    type: 'list',
+            //    name: 'appFramework',
+            //    message: '选择React应用框架:',
+            //    choices: [
+            //        { name: 'react-touch', value: 'useReactTouch' },
+            //        { name: '不用', value: 'onlyReact' }
+            //    ],
+            //    default: 1
+            //},
+            //{
+            //    type: 'confirm',
+            //    name: 'useFlux',
+            //    message: '是否用Flux? (复杂应用推荐使用)'
+            //},
+            {
+                type: 'checkbox',
+                name: 'features',
+                message: 'What more would you like?',
+                choices: [
+                    {
+                        name: 'Sass',
+                        value: 'includeSass',
+                        checked: true
+                    },
+                    {
+                        name: 'Bootstrap',
+                        value: 'includeBootstrap',
+                        checked: true
+                    },
+                    {
+                        name: 'Modernizr',
+                        value: 'includeModernizr',
+                        checked: true
+                    }]
+            }];
 
         this.prompt(prompts, function (answers) {
             var features = answers.features;
-
+            this.appName = e.appName;
             var hasFeature = function (feat) {
                 return features.indexOf(feat) !== -1;
             };
@@ -77,9 +100,9 @@ module.exports = yeoman.generators.Base.extend({
             this.includeSass = hasFeature('includeSass');
             this.includeBootstrap = hasFeature('includeBootstrap');
             this.includeModernizr = hasFeature('includeModernizr');
-
             done();
         }.bind(this));
+
     },
 
     writing: {
