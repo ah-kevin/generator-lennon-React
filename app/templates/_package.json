@@ -1,5 +1,6 @@
 {
   "private": true,
+  "name": "<%= _.slugify(appName)%>",
   "engines": {
     "node": ">=0.12.0"
   },
